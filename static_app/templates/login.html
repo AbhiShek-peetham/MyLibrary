@@ -1,0 +1,28 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block title %} update {% endblock %}
+{% block content %}
+
+    <h2>User Login Page</h2>
+    <hr style="border-top: 2px solid #3498db; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <!-- Username -->
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" required>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+{% endblock %}
+

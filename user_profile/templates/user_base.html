@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLibrary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .navbar-brand {
+            font-family: 'Roboto', sans-serif; /* Custom font */
+            font-size: 1.5rem; /* Adjust font size as needed */
+            color: white !important;
+
+        }
+        .hero-section {
+            background: url('{% static "images/books.jpg" %}') no-repeat center center;
+            background-size: cover;
+            color: #29302fbf;
+            padding: 140px 0;
+            /* text-align: center; */
+        }
+        .feature-icon {
+            font-size: 48px;
+            color: #007bff;
+        }
+        #para{
+            color:white ;
+            font-weight: bold;
+            padding: 5px;
+
+        }
+        .navbar-nav .nav-link {
+            font-size: medium;
+            color: white !important; /* Dark color */
+        }
+        .navbar{
+            background-color: aqua;
+        }
+        .navbar-nav .nav-link:hover {
+            color: white !important; /* Darker shade on hover */
+        }
+        .navbar a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+        transition: transform 0.3s; /* Smooth scaling transition */
+        }
+
+        .navbar a:hover {
+            transform: scale(1.3); /* Scale up the link */
+        }
+        .footer {
+        background-color: #343a40;
+        color: #ffffff;
+        }
+
+        .footer h5 {
+            font-weight: bold;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .footer a:hover {
+            color: #f8e802; /* Highlight color on hover */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#3e5172;">
+        <a class="navbar-brand" href="{% url 'user_base' %}"><span style="color: #55d170;">My</span>Library</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"> <span style="color: #f84402;">{{user_name}}</span></a> <!-- Placeholder for dynamic username -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lists_view' %}">View Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'viewcart' %}">View Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout_view' %}">Logout</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="{% url 'user_search' %}" method="GET">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search books" aria-label="Search" name="q">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    
+    {% block content%}
+    
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 id="main-h1">Welcome to MyLibrary <span style="color: hsl(23, 98%, 49%);">{{user_name}}</span></h1> <!-- Personalized welcome message -->
+            <p id="para">Discover a world of books and unlock new adventures with us!</p>
+            <a href="{% url 'lists_view' %}" class="btn btn-primary btn-lg">Browse Collection</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-icon"><i class="fas fa-book"></i></div>
+                    <h3>Wide Collection</h3>
+                    <p>Access a wide variety of books across different genres, all in one place.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3>Community</h3>
+                    <p>Connect with other readers, share reviews, and get recommendations.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon"><i class="fas fa-star"></i></div>
+                    <h3>Personalized Recommendations</h3>
+                    <p>Get recommendations based on your reading history and preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock%}
+    <!-- Footer -->
+    <!-- <footer class="bg-light py-4 ">
+        <div class="container text-center">
+            <p>&copy; 2024 MyLibrary. All Rights Reserved.</p>
+        </div>
+    </footer> -->
+    <footer class="footer bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Brand Section -->
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase">MyLibrary</h5>
+                    <p>Your one-stop destination for books of all genres.</p>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase">Explore</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'user_base'%}" class="text-white">Home</a></li>
+                        <li><a href="{% url 'lists_view'%}" class="text-white">Browse Books</a></li>
+                        <li><a href="" class="text-white">About Us</a></li>
+                        <li><a href="" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Social Media Links -->
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase">Connect with Us</h5>
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
+                </div>
+            </div>
+    
+            <!-- Copyright Section -->
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p class="mb-0">&copy; 2024 MyLibrary. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,70 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block title %} view {% endblock %}
+{% block content %}
+
+    <!-- <h2> View Status</h2>  -->
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand"><h1>View Status</h1></a>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    <hr style="border-top: 2px solid #3498db; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Author</th>
+                <th>Book Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in page %}
+            <tr>
+                <td>{{ v.id }}</td>
+                <td>{{ v.name_db }}</td>
+                <td>{{ v.email_db }}</td>
+                <td>{{ v.author_db }}</td>
+                <td>{{ v.quantity }}</td>
+                <td>{{ v.price_db }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if page.has_previous  %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{page.previous_page_number}}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          {%endif%}
+          {% for num in page.paginator.page_range %}
+
+
+          <li class="page-item {% if page.number == num %} active {% endif %}">
+            <a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+
+          {% endfor %}
+          {% if page.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{page.next_page_number}}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      
+    {% endblock %}
+

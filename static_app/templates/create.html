@@ -1,0 +1,39 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block title %} update {% endblock %}
+{% block content %}
+
+    <h2>Create Books</h2>
+    <hr style="border-top: 2px solid #3498db; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);">
+
+    <form class="home-form" action="#" method="POST">
+        {% csrf_token %}
+        <label for="name"> Name:</label>
+        <input type="text" id="name" name="create_name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="create_email" required>
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="create_author" required>
+
+        <label for="author">Quantity:</label>
+        <input type="text" id="quantity" name="quantity" required>
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="create_price" required>
+
+        <div class="button-container">
+            <button type="submit" class="create-btn">Create</button>
+        </div>
+    </form>
+
+    <script>
+        function updateUser() {
+            // Add functionality to update the user here
+            alert('User created!!');
+        }
+    </script>
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %} users {% endblock %}
+{% block content %}
+
+    <h2>Update Users</h2>
+    
+    <hr style="border-top: 2px solid #3498db; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);">
+
+    <form class="home-form" action="#" method="POST">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" value="{{update_dic.name_db}}" name="name_update" required>
+
+        <label for="email">Email:</label>
+        <input type="email" value="{{update_dic.email_db}}" name="email_update" required>
+
+        <label for="name">Author:</label>
+        <input type="text" value="{{update_dic.author_db}}" name="author_update" required>
+
+        <label for="name">Book Quantity:</label>
+        <input type="text" value="{{update_dic.quantity}}" name="quantity" required>
+
+        <label for="price">Price:</label>
+        <input type="text" value="{{update_dic.price_db}}" name="price_update" required>
+
+        <div class="button-container">
+            <button type="submit" class="update-btn">Update</button>
+        </div>
+    </form>
+{% endblock %}

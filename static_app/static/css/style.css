@@ -1,0 +1,63 @@
+        body {
+            font-family: Arial, sans-serif;
+             /* max-width: 600px; */
+            margin: auto;
+            padding: 1em;
+         } 
+         h2{
+            color: hsl(213, 94%, 49%);
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+        .h-one{
+            text-align: center;
+            color: hwb(294 12% 9%);
+            font-weight: bolder; 
+        }
+        form {
+            /* display: flex; */
+            max-width: 500px;
+            flex-direction: row;
+            gap: 1em;
+            align-items: center;
+        } 
+        label, input {
+            width: 100%;
+        }
+        .button-container {
+            /* display: flex; */
+            gap: 0.5em;
+            margin-top: 10px;
+            
+        }
+        .create-btn { background-color: #4CAF50; color: white; border-radius: 3px;}
+        .delete-btn { background-color: #f44336; color: white; border-radius: 3px;}
+        .update-btn { background-color: #008CBA; color: white; border-radius: 3px;}
+        button {
+            padding: 0.5em 1em;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            opacity: 0.9;
+        } 
+        .navbar-login {
+            display: flex;
+            justify-content: space-between;
+            color: hsl(0, 87%, 51%);
+            padding: 5px 5px;
+        }
+        
+        .navbar-right a {
+            text-decoration: none;
+            color: hsl(127, 94%, 49%);
+            padding: 3px 3px;
+        }
+        
+        .navbar-right {
+            margin-left: auto; /* Pushes the right section to the end */
+        }
+        .nav-link :hover{
+            color: white;
+
+        }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card text-center border-success">
+                    <div class="card-body">
+                        <h2 class="text-success"><i class="fas fa-check-circle"></i> Payment Successful!</h2>
+                        <p class="lead mt-3">Thank you for your purchase.</p>
+                        <hr>
+                        <h5 class="font-weight-bold">Order Summary</h5>
+                        <p>Total Items: <span id="total-items">{{ total_items }}</span></p>
+                        <p>Total Price: $<span id="total-price">{{ total_price }}</span></p>
+                        <hr>
+                        <a href="{% url 'lists_view' %}" class="btn btn-primary mt-3">Continue Shopping</a>
+                        <a href="/order-history" class="btn btn-outline-secondary mt-3">View Order History</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
